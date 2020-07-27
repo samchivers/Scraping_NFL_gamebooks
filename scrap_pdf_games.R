@@ -15,7 +15,7 @@ for (d in 57900:58155){
   while(boolFalse==F){
     ht = home_team_loop$x[i]
     if (is.na(ht)){
-      next
+      break
     }
     url = paste0('https://nflcdns.nfl.com/liveupdate/gamecenter/',toString(d),'/',home_team_loop$x[i],'_Gamebook.pdf')
     tryCatch({
@@ -25,7 +25,4 @@ for (d in 57900:58155){
     },finally={})
     i = i+1
   }
-  
 }
-
-is.na(home_team_loop$x[33])
