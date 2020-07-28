@@ -57,8 +57,8 @@ for (i in 1:length(lst_files)){
                                                         if_else(home_team == 'Los Angeles Rams','LA',
                                                                 if_else(home_team == 'Jacksonville Jaguars','JAX',
                                                                         if_else(home_team == 'Kansas City Chiefs','KC',
-                                                                                if_else(home_team == 'Miami Dolphins','BLT',
-                                                                                        if_else(home_team == 'Baltimore Ravens','MIA',
+                                                                                if_else(home_team == 'Miami Dolphins','MIA',
+                                                                                        if_else(home_team == 'Baltimore Ravens','BLT',
                                                                                                 if_else(home_team == 'Minnesota Vikings','MIN',
                                                                                                         if_else(home_team == 'Atlanta Falcons','ATL',
                                                                                                                 if_else(home_team == 'New York Jets','NYJ',
@@ -92,8 +92,8 @@ for (i in 1:length(lst_files)){
                                                         if_else(away_team == 'Los Angeles Rams','LA',
                                                                 if_else(away_team == 'Jacksonville Jaguars','JAX',
                                                                         if_else(away_team == 'Kansas City Chiefs','KC',
-                                                                                if_else(away_team == 'Miami Dolphins','BLT',
-                                                                                        if_else(away_team == 'Baltimore Ravens','MIA',
+                                                                                if_else(away_team == 'Miami Dolphins','MIA',
+                                                                                        if_else(away_team == 'Baltimore Ravens','BAL',
                                                                                                 if_else(away_team == 'Minnesota Vikings','MIN',
                                                                                                         if_else(away_team == 'Atlanta Falcons','ATL',
                                                                                                                 if_else(away_team == 'New York Jets','NYJ',
@@ -140,4 +140,8 @@ for (i in 1:length(lst_files)){
 #Create Output Dataframe
 output_df <- dplyr::bind_rows(output)
 #Write file
+output_df$def_team_q1[118] <- 'CAR'
+output_df$def_direction_q1[118] <- 'west'
+output_df[118,]
+
 write.csv(output_df,paste0('C:/Users/adrian-boss/Documents/GitHub/Scraping_NFL_gamebooks/CSVs/output_direction',toString(yr),'.csv'),row.names = F)
