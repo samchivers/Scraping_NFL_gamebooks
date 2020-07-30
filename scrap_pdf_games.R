@@ -8,13 +8,16 @@ library(dplyr)
 home_team_loop<-read.csv('home_teams.csv')
 
 #################################
+#ids2013: 55837:56092
+#ids2014: 56170:56425
+#ids2015: 56503:56758
 #ids2016: 56901:57156
 #ids2017: 57234:57489
 #ids2018: 57567:57822 
 #ids2019: 57900:58155
 
-yr = 2018
-for (d in 57567:57822) {
+yr = 2013
+for (d in 55837:56092) {
   boolFalse<-F
   i = 1
   while(boolFalse==F){

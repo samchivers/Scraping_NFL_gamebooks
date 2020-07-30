@@ -5,7 +5,7 @@ library(dplyr)
 setwd("~/GitHub/Scraping_NFL_gamebooks")
 
 #Pick year
-yr=2016
+yr=2013
 
 #Double check length (must be 256)
 list.files(path = paste0("C:/Users/adrian-boss/Documents/GitHub/Scraping_NFL_gamebooks/pdfs/",toString(yr)))%>% length()
@@ -20,10 +20,6 @@ output <- list()
 for (i in 1:length(lst_files)){
   #Get file
   file_name<-lst_files[i]
-  #file_name <- "57018_CAR_Gamebook_2016.pdf"
-  #file_name <-"56903_BAL_Gamebook_2016.pdf"
-  #file_name <-"57019_DAL_Gamebook_2016.pdf"
-  #file_name <-"57571_MIA_Gamebook_2018.pdf"
   file<-pdf_text(paste0("C:/Users/adrian-boss/Documents/GitHub/Scraping_NFL_gamebooks/pdfs/",toString(yr),"/",file_name))
   #Get home and away team
   file2 <- file[1]
@@ -64,7 +60,8 @@ for (i in 1:length(lst_files)){
                                                                                                                                                                                                                                                               if_else(home_team == 'Denver Broncos','DEN',
                                                                                                                                                                                                                                                                       if_else(home_team == 'Oakland Raiders','OAK',
                                                                                                                                                                                                                                                                               if_else(home_team == 'San Diego Chargers','SD',
-                                                                                                                                                                                                                                                                                      home_team)))))))))))))))))))))))))))))))))
+                                                                                                                                                                                                                                                                                      if_else(home_team == 'St','SL',
+                                                                                                                                                                                                                                                                                      home_team))))))))))))))))))))))))))))))))))
   
   away_team = if_else(away_team == 'Chicago Bears','CHI',
                       if_else(away_team == 'Carolina Panthers','CAR',
@@ -99,7 +96,8 @@ for (i in 1:length(lst_files)){
                                                                                                                                                                                                                                                               if_else(away_team == 'Denver Broncos','DEN',
                                                                                                                                                                                                                                                                       if_else(away_team == 'Oakland Raiders','OAK',
                                                                                                                                                                                                                                                                               if_else(away_team == 'San Diego Chargers','SD',
-                                                                                                                                                                                                                                                                                      away_team)))))))))))))))))))))))))))))))))
+                                                                                                                                                                                                                                                                                      if_else(away_team == 'St','SL',
+                                                                                                                                                                                                                                                                                      away_team))))))))))))))))))))))))))))))))))
   # Q1
   #Get Teams and direction
   file1<- file%>%strsplit("[.]")%>% unlist()
